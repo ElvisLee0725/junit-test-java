@@ -40,10 +40,17 @@ public class ValidateISBNTest {
     }
 
     @Test
-    public void tenDigitsisbnNumbersEndingInXAreValid() {
+    public void tenDigitsISBNNumbersEndingInXAreValid() {
         ValidateISBN validator = new ValidateISBN();
         boolean result = validator.checkISBN("012000030X");
         assertTrue(result);
+    }
+
+    @Test
+    public void tenDigitsISBNNumbersEndingInXButInValid() {
+        ValidateISBN validator = new ValidateISBN();
+        boolean result = validator.checkISBN("012000031X");
+        assertFalse(result);
     }
 
     @Test(expected = NumberFormatException.class)
